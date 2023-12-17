@@ -1,0 +1,62 @@
+.user-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 100%;
+    border-radius: 2em;
+    margin: 8px;
+    background-image: linear-gradient(to bottom right, rgb(236, 233, 233),rgb(113, 112, 112));
+    cursor: pointer;
+}
+.users{
+    width: 60%;
+    margin: 25px;
+}
+.users-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.image{
+    border-radius: 5em;
+    margin: 5%;
+    margin-right: 15%;
+}
+.heading{
+    background-image: linear-gradient(to bottom right, rgb(251, 234, 104), rgb(243, 91, 15));
+    padding: 2.8%;
+    padding-right: 0%;
+    width: 98%;
+    border: 3px solid rgb(255, 153, 0);
+    text-align: center;
+    border-radius: 2em;
+}
+.name{
+    position: relative;
+    top: 14px;
+    width: 100%;
+}
+.data-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+.user-profile{
+    margin: 50px;
+}
+.no-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30%;
+    width: 100%;
+    font-size: larger;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    line-height: 200%;
+    background-color: rgb(165, 244, 244);
+}
