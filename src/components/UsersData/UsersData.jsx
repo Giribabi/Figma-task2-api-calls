@@ -6,6 +6,7 @@ import './UsersData.css';
 
 function UsersData(){
     const [usersList,setUsersList] = useState([])
+    const [mode,switchMode] = useState("light")
     const [isLoading,setIsLoading] = useState(false)
     const [isUserSelected,setSelectedUser] = useState(false)
     const [error,setError] = useState(false)
@@ -16,6 +17,13 @@ function UsersData(){
     const [job, setJob] = useState("")
     const [mail,setMail] = useState("")
 
+    function handleMode(){
+        console.log(mode)
+        if(mode==='light')
+        switchMode("dark")
+        else
+        switchMode("light")
+    }
     useEffect(()=>{
         async function fetchUsers(){
             setIsLoading(true)
@@ -36,14 +44,20 @@ function UsersData(){
         fetchUsers()
     },[])
     if(error){
-        return (<div>
+        return (<div className='no-info' style={{backgroundColor : "orange"}}>
             No information to be displayed due to data error
         </div>)
     }
     function handleImageError(e){
         e.target.src = pic
     }
-    return (<div className='data-container'>
+    return (
+    <div className='data'>
+    <div className="theme-button" onClick={handleMode}>
+        Switch Mode
+    </div>
+    <div className='data-container'
+    style={{backgroundColor: mode==="dark"? "darkgrey" : "white"}}>
         <div className='users'>
             <div className="heading">
                 USERS LIST
@@ -56,7 +70,7 @@ function UsersData(){
                     usersList.map((user)=>(
                             <div
                             className='user-item'
-                            style={{border: "2px solid grey"}} 
+                            style={{border: "2px solid grey", color : mode==="dark"? "white": "black", backgroundImage : mode==="dark"? "linear-gradient(to bottom right, grey,black)": "linear-gradient(to bottom right, rgb(236, 233, 233),rgb(113, 112, 112))"}} 
                             key={`${user.id}-${user.createdAt}`}
                             onClick={()=>{
                                 console.log(user)
@@ -101,6 +115,7 @@ function UsersData(){
             </div>
         }
         </div>
+    </div>
     </div>)
 }
 export default UsersData
